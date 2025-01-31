@@ -1,0 +1,1241 @@
+#homepage{
+	margin-top: 50px;
+}
+body{
+	background-color: #ffffff;
+}
+/* Typography */
+#home{
+	font-family: Helvetica;
+	font-size: 32pt;
+	color: #203D7C;
+	margin: 0;
+	padding: 0;
+	font-weight: bold;
+}
+h1 {
+	font-family: Helvetica;
+	font-size: 24pt;
+	/* font-size: 48px; */
+	color: #203D7C;
+	font-weight: bold;
+
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+h2 {
+	font-family: Helvetica;
+	/* font-size: 32px; */
+	font-size: 18pt;
+	color: #203D7C;
+	font-weight: normal;
+}
+h3 {
+	font-family: Helvetica;
+	font-size: 14pt;
+	color: black;
+}
+p {
+	font-family: Helvetica;
+	font-size: 11pt;
+	color: #353535;
+}
+a, ol, li, div{
+	font-family: Helvetica;
+	font-size: 11pt;
+	text-decoration: none;
+}
+ul{
+	padding-left: 20px;
+}
+
+a{
+	color: #203D7C;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.gutter{
+
+}
+label{
+	font-family: Helvetica;
+	font-size: 10pt;
+}
+legend{
+	font-family: Helvetica;
+	font-size: 24pt;
+}
+/* common */
+.styled-textbox {
+	width: 200px;
+	height: 20px;
+	padding: 10px;
+	box-sizing: border-box;
+
+	font-size: 9pt;
+	border-radius: 4px;
+	border: 1px solid #ccc; /* Sets a single-color border */
+	outline: none; /* Removes default outline on focus */
+}
+.styled-select{
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+
+	height: 20px;
+
+	font-family: Helvetica;
+	font-size: 9pt;
+	color: #353535;
+
+	display: flex;
+	align-content: center;
+	align-items: center;
+
+	border-radius: 4px;
+	border: 1px solid #ccc; /* Sets a single-color border */
+
+	width: 200px
+
+}
+.radio-group{
+	display: flex;
+	align-items: center;
+	margin: 0px;
+}
+.radio-group label{
+	margin-left: 2px;
+}
+.radio-group input{
+	margin-bottom: 3px;
+}
+.styled-th{
+	font-family: Helvetica;
+	font-weight: normal;
+	font-size: 11pt;
+	color: #353535;
+	margin: 0px
+}
+.styled-button{
+	font-family: Helvetica;
+	font-size: 11pt;
+	font-weight: bold;
+	color: white;
+	border: none;
+
+	background-color: #881D5E;
+	margin-right: 10px;
+
+	width: 100px;
+	height: 40px;
+
+	border-radius: 6px; /* Rounded corners */
+
+	cursor: pointer;
+}
+.styled-button-bigger{
+	font-family: Helvetica;
+	font-size: 11pt;
+	font-weight: bold;
+	color: white;
+	border: none;
+
+	background-color: #881D5E;
+	margin-right: 10px;
+
+	width: 140px;
+	height: 40px;
+
+	border-radius: 6px; /* Rounded corners */
+
+	cursor: pointer;
+}
+.styled-button-fullwidth{
+	font-family: Helvetica;
+	font-size: 11pt;
+	font-weight: bold;
+	color: white;
+	border: none;
+
+	background-color: #881D5E;
+	margin-right: 10px;
+
+	width: 100%;
+	height: 40px;
+
+	border-radius: 6px; /* Rounded corners */
+
+	cursor: pointer;
+}
+.styled-button-150{
+	font-family: Helvetica;
+	font-size: 11pt;
+	font-weight: bold;
+	color: white;
+	border: none;
+
+	background-color: #881D5E;
+	margin-right: 10px;
+
+	width: 150px;
+	height: 40px;
+
+	border-radius: 6px; /* Rounded corners */
+
+	cursor: pointer;
+}
+.styled-button:hover{
+	background-color:#A43275
+}
+.styled-button2{
+	font-family: Helvetica;
+	font-size: 11pt;
+	font-weight: normal;
+	color: white;
+	border: none;
+
+	background-color: #6C757D;
+	margin-right: 10px;
+
+	width: 100px;
+	height: 40px;
+
+	border-radius: 6px; /* Rounded corners */
+
+	cursor: pointer;
+}
+.styled-button2:hover{
+	background-color: #5A6268
+}
+
+.styled-button3{
+	font-family: Helvetica;
+	font-size: 11pt;
+	font-weight: normal;
+	color: white;
+	border: none;
+
+	background-color: #6C757D;
+	margin-right: 10px;
+
+	width: 100%;
+	height: 30px;
+
+	border-radius: 6px; /* Rounded corners */
+
+	cursor: pointer;
+}
+.styled-button3:hover{
+	background-color: #5A6268
+}
+
+
+
+/* header */
+.login{
+	color: black;
+	text-decoration: none;
+	font-size: 12pt;
+}
+/* Main Template order */
+body, html {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+.button {
+	font-family: Helvetica;
+	display: inline-block;
+	padding: 0.5em 1em;
+	font-size: 1em;
+	font-weight: 400;
+	text-align: center;
+	text-decoration: none;
+	border: 1px solid transparent;
+	border-radius: 0.25em;
+	cursor: pointer;
+	transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+	width: auto;
+	height: 30px;
+
+	background-color: #881D5E; /* Primary color */
+	color: #ffffff; /* Text color */
+	/*border-color: #007bff;*/
+}
+.button{
+
+}
+
+.button:hover {
+	background-color: #0056b3; /* Darker shade on hover */
+	border-color: #004085;
+}
+
+.button:focus, button:active {
+	outline: none;
+	box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+}
+
+a.button{
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+#backgroundIMG{
+	position: absolute;
+	top: 0px;
+	right: -100px;
+	width: 50vw;
+	height: auto;
+	z-index: -1; /* Send to back */
+	opacity: 0.5; /* Make it less visible */
+}
+
+
+
+
+/* Header */
+/* text after Welcome in header. */
+.header-dropdown:hover{
+color: #d8d8d8;
+	background-color: #1a3163;;
+}
+#name-text{
+	font-family: Helvetica;
+	font-size: 12pt;
+	color: #ffffff;
+	font-weight: bold;
+	margin-right: 2px;
+}
+/* Welcome in header. */
+#welcome-text{
+	font-family: Helvetica;
+	font-size: 12pt;
+	color: #ffffff;
+	margin-right: 5px;
+}
+/*  login text right */
+#login{
+	font-family: Helvetica;
+	font-size: 12pt;
+	color: #ffffff;
+	font-weight: bold;
+
+	margin-right: 30px;
+}
+
+/* header */
+.account-container {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	height: 50px;
+}
+.accountright{
+	display: flex;
+	justify-content: right; /* Center content horizontally */
+	align-items: center; /* Center content vertically */
+	height: 50px;
+}
+
+#logo{
+	display: flex;
+	justify-content: center; /* Center content horizontally */
+	align-items: center; /* Center content vertically */
+
+	width: 100%;
+	height: 50px;
+}
+#logo img{
+	height: 40px;
+}
+
+
+
+.welcome-container {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	margin-right: 30px;
+}
+
+.hoverdropdown {
+	position: relative; /* Establish positioning context */
+	display: inline-block; /* Ensure inline layout */
+}
+
+.dropdown-menu {
+	display: none;
+	position: absolute;
+	top: 100%; /* Position below the parent */
+	background-color: #203D7C; /* Dropdown background color */
+	width: 140px;
+	z-index: 1; /* Ensure dropdown is above other content */
+	padding: 0;
+}
+
+.dropdown-menu li {
+	list-style-type: none;
+	width: 100%;
+}
+#v{
+	width: 10px;
+	height: auto;
+}
+
+
+.dropdown-menu a {
+	font-family: Helvetica;
+	font-weight: bold;
+	font-size: 11pt;
+
+	color: white;
+	padding: 8px 12px;
+	text-decoration: none;
+
+	display: block; /* Makes <a> take the full width for better clickability */
+	text-align: center; /* Ensures text is centered horizontally */
+}
+
+.dropdown-menu button {
+	background: none; /* Remove default button styles */
+	border: none; /* Remove borders */
+	cursor: pointer; /* Show pointer cursor */
+	width: 100%; /* Make button full width */
+}
+
+.dropdown-trigger {
+	cursor: pointer; /* Show pointer cursor */
+	display: flex; /* Align items horizontally */
+	align-items: center; /* Center items vertically */
+}
+
+
+
+/* Login Page */
+
+
+#MiddleFormContainer {
+	display: flex;
+
+	flex-direction: column;
+
+	margin-top: 0px	;
+	justify-content: flex-start; /* Centers items horizontally */
+	align-items: center;
+
+	height: 80vh;          /* Full viewport height */
+	width: calc(100% - 200px); /* Correct way to subtract 200px from 100% */
+}
+
+/* Form container */
+form#loginForm {
+	width: 600px;
+	height: 600px;
+	background: white;
+	padding: 30px;
+
+	border-radius: 15px; /* Rounded corners */
+	box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); /* Soft black shadow around the box */
+	transition: box-shadow 0.3s ease;
+}
+
+/* Fieldset styling */
+fieldset {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border: none;
+}
+
+legend {
+	margin-top: 10px;
+	text-align: left;
+	font-size: 24px;
+	font-weight: bold;
+	color: #333;
+}
+.login-textCell{
+	width: 400px;
+	height: 50px;
+
+	padding: 10px;
+	box-sizing: border-box;
+	font-size: 16px;
+	border-radius: 8px;
+	border: 1px solid #ccc; /* Sets a single-color border */
+	outline: none; /* Removes default outline on focus */
+}
+#login-button{
+	font-family: Helvetica;
+	font-size: 11pt;
+	font-weight: bold;
+	color: white;
+	border: none;
+
+	background-color: #881D5E;
+
+	width: 400px;
+	height: 50px;
+
+	border-radius: 8px;
+
+	margin-bottom: 40px;
+
+	cursor: pointer;
+}
+
+#center-login{
+	margin-top: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+
+	gap: 10px;
+}
+/* Table styling for form inputs */
+
+#styled-table tr td{
+	height: 80px;
+}
+
+/*                                          Register/Edit user                                           */
+.spacing{
+	height: 40px;
+}
+#putFormInMiddle{
+	margin-top: 40px;
+	display: grid;
+	justify-content: center;
+	align-items: center;
+}
+.MiddleFormContainer{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 80vh;
+
+	border-radius: 15px; /* Rounded corners */
+	box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); /* Soft black shadow around the box */
+	transition: box-shadow 0.3s ease;
+}
+/* Form input field styling */
+.input-container {
+	position: relative;
+}
+
+.input-container label {
+	position: absolute;
+	top: -20px;
+	left: 0;
+	font-size: 14px;
+	color: #555;
+	transition: all 0.3s ease;
+}
+.input-container p {
+	margin-top: 2px;
+	margin-left: 10px;
+	color: #555;
+}
+
+.textCell {
+	width: 400px;
+	height: 40px;
+	padding: 10px;
+	box-sizing: border-box;
+	font-size: 16px;
+	border-radius: 8px;
+	border: 1px solid #ccc; /* Sets a single-color border */
+	outline: none; /* Removes default outline on focus */
+}
+.smallTextCell{
+	width: 190px;
+	height: 40px;
+	padding: 10px;
+	box-sizing: border-box;
+	font-size: 16px;
+	border-radius: 8px;
+	border: 1px solid #ccc; /* Sets a single-color border */
+	outline: none; /* Removes default outline on focus */
+}
+.names{
+	display: flex;
+	gap: 20px;
+}
+
+.textCell:focus + label, /* Label moves up on focus */
+.textCell:not(:placeholder-shown) + label { /* Label moves up if input has content */
+	top: -35px;
+	font-size: 12px;
+	color: #000000;
+}
+
+.register-button{
+	font-family: Helvetica;
+	font-size: 10pt;
+	font-weight: bold;
+	color: white;
+	border: none;
+
+	background-color: #881D5E;
+	margin-right: 10px;
+
+	width: 140px;
+	height: 50px;
+	border-radius: 10px; /* This makes the corners rounded */
+
+	cursor: pointer;
+}
+
+.register-button-a{
+	font-family: Helvetica;
+	font-size: 10pt;
+	font-weight: bold;
+	color: white;
+	border: none;
+
+	background-color: #881D5E;
+	margin-right: 10px;
+
+	width: 140px;
+	height: 50px;
+	border-radius: 10px; /* This makes the corners rounded */
+
+	cursor: pointer;
+	display: block;
+}
+
+.register-button:hover {
+
+}
+
+/* ----------------------------------- forgot password ---------------------------------------------*/
+
+.forgot-password-textCell{
+	width: 400px;
+	height: 50px;
+
+	padding: 10px;
+	box-sizing: border-box;
+	font-size: 16px;
+	border-radius: 8px;
+	border: 1px solid #ccc; /* Sets a single-color border */
+	outline: none; /* Removes default outline on focus */
+
+}
+/* label */
+
+
+/* Error message styling */
+.error {
+	color: #d9534f;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.error img {
+	vertical-align: middle;
+	margin-right: 5px;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+	form#loginForm {
+		width: 100%;
+		padding: 20px;
+	}
+}
+
+/* search */
+
+#s-nav{
+
+}
+buttonlayout{
+
+}
+.advanced-search-text{
+	font-family: Helvetica;
+	font-size: 11pt;
+	color: #353535;
+	font-weight: normal;
+}
+/* search-nav.jsp */
+
+.search-button{
+	display: flex; /* Use flexbox for alignment */
+	justify-content: center; /* Center horizontally */
+	align-items: center; /* Center vertically */
+
+	min-width: 100px;
+	max-width: 200px;
+
+	padding: 0 5px;
+
+	/* width 100px; */
+
+	height: 40px;
+
+	background-color: #DCDFE7;
+
+	border-radius: 4px;
+
+	font-family: Helvetica;
+	font-size: 10pt;
+	font-weight: normal;
+	color: #292B2F;
+
+	cursor: pointer;
+}
+
+.search-button:hover{
+	color: white;
+	background-color: #203D7C;
+}
+.search-button.current {
+	background-color: #203D7C; /* Highlight for the active page */
+	color: white;
+}
+
+
+
+.search-grid{
+	display: flex;
+	gap: 10px;
+	margin-bottom: 20px;
+}
+#header-container{
+	display: flex;               /* Enable flexbox */
+	align-items: center;         /* Vertically align items */
+	gap: 10px;
+}
+#header-navigation{
+	font-family: Helvetica;
+	/* font-size: 32px; */
+	font-weight: bold;
+	font-size: 18pt;
+	color: #203D7C;
+	cursor: pointer;
+}
+
+/* study search */
+
+.search-select{
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+
+	height: 40px;
+
+	font-family: Helvetica;
+	font-size: 11pt;
+	color: #353535;
+
+	display: flex;
+	align-content: center;
+	align-items: center;
+
+	border: #A9AAAC solid 1px;
+}
+.search-input{
+	box-sizing: border-box;
+	font-size: 11pt; /* Sets the font size to 18px */
+	font-family: Arial, sans-serif; /* Sets the font to Arial */
+
+	height: 40px;
+	width: auto !important;
+
+	padding: 0;
+
+	color: #353535;
+	border: #A9AAAC solid 1px;
+}
+.search-fieldset{
+
+}
+.search-group{
+	margin-top: 10px;
+	background-color: white;
+	border: #CCEBF7 solid 1px;
+	width: 400px;
+}
+.search-spacing{
+	display: grid;
+	margin: 10px;
+}
+
+#search-button{
+	font-family: Helvetica;
+	font-size: 11pt;
+	font-weight: bold;
+	color: white;
+	border: none;
+
+	background-color: #881D5E;
+	margin-right: 10px;
+
+	width: 120px;
+	height: 50px;
+
+	cursor: pointer;
+	border-radius: 6px;
+}
+#search-button:hover{
+	background-color:#A43275
+
+}
+
+.search-input, .search-select, #search-button {
+	margin-bottom: 10px;
+}
+.search-fieldset{
+	margin: 10px;
+}
+
+
+/* Journal card container styling */
+.journal-card {
+	width: 300px;
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	overflow: hidden;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	background-color: #fff;
+}
+
+/* Image styling */
+.journal-card img {
+	width: 100%;
+	height: auto;
+}
+
+/* Journal card content */
+.journal-cardbody {
+	padding: 8px 16px;
+}
+
+/* Header styling */
+.journal-header {
+	font-size: 18px;
+	font-weight: bold;
+	color: #333;
+	margin-bottom: 5px;
+	margin-top: 5px;
+	text-align: left;
+}
+
+/* Link styling */
+.journal-cardbody a {
+	display: block;
+	text-decoration: none;
+	color: #881D5E;
+	margin-bottom: 12px;
+	font-size: 12px;
+	font-weight: normal;
+	transition: color 0.3s;
+}
+
+/* Link hover effect */
+.journal-cardbody a:hover {
+	color: #0056b3;
+}
+.contentsearch{
+	margin-left: -190px;
+}
+.contactsvg{
+	width: 40px;
+	height: 40px;
+}
+
+/* ----------------------------------------------------- footer ------------------------------------------------ */
+/* Footer container */
+.contact-footer{
+	display: flex;
+}
+.footer-text{
+	color: white;
+	font-size: 10pt;
+}
+.footer-header{
+	color: white;
+	font-weight: bold;
+	font-size: 12pt;
+}
+#footer-view {
+	background-color: #031A6B;
+	padding: 20px;
+	font-family: Arial, sans-serif;
+	color: white;
+	text-align: center;
+}
+
+/* Flexbox for horizontal alignment */
+.footer-section {
+	display: flex;
+	justify-content: space-around;  /* Space between the three parts */
+	align-items: start;
+	flex-wrap: wrap;  /* Allows wrapping on smaller screens */
+	margin-bottom: 20px;
+}
+
+/* Individual parts */
+.footer-part {
+	flex: 1;
+	margin: 10px;
+	text-align: left;
+}
+#middle-footer-part{
+	align-items: center !important;
+}
+
+.footer-part img {
+	width: auto;
+	height: 40px;
+	margin: 5px;
+	vertical-align: middle;
+}
+
+.footer-part a {
+	color: #7C8CAC;
+	text-decoration: none;
+}
+
+.footer-part a:hover {
+	text-decoration: underline;
+}
+
+/* Copyright text */
+#footer-view p.copyright {
+	font-size: 12px;
+	color: #7C8CAC;
+	margin-top: 20px;
+}
+/* Style for icons */
+.contact-svg {
+	width: 40px;
+	height: 40px;
+	margin: 0 10px; /* Space between icons */
+	vertical-align: middle;
+}
+
+.extra-svg{
+	width: 60px;
+}
+
+#footer-view img {
+	display: inline-block;
+	margin: 5px;
+}
+
+#footer-view a img {
+	transition: transform 0.3s ease; /* Smooth transition for icon hover effect */
+}
+
+#footer-view a img:hover {
+	transform: scale(1.1); /* Slight zoom effect on hover */
+}
+#email-text{
+	font-size: 10pt;
+	margin: 3px;
+}
+
+#read-more{
+	margin-top: 8px;
+	font-weight: bold;
+	color: #881D5E;
+}
+
+/* ------------------------------------ admin ---------------------------------------------*/
+
+#admin-filter-role{
+	display: flex;
+	align-items: center;
+
+	padding: 10px;
+	height: 50px;
+}
+#admin-filter-role label {
+	display: flex;
+	align-items: center; /* Vertically align the radio button and text */
+	gap: 5px; /* Add spacing between the radio button and its text */
+	cursor: pointer;
+
+	margin-right: 10px;
+}
+#admin-filter-role label input{
+	margin: 0;
+	cursor: pointer;
+}
+#admin-select-role{
+	box-sizing: border-box;
+	padding: 0;
+
+	height: 30px;
+
+	font-family: Helvetica;
+	font-size: 11pt;
+	color: #353535;
+
+	display: flex;
+	align-content: center;
+	align-items: center;
+
+	border: #A9AAAC solid 1px;
+
+	border-radius: 6px;
+
+	margin-right: 10px;
+}
+
+/* Styling the input container */
+.admin-input-container {
+	display: flex;
+	justify-content: center;
+	padding: 0.5rem;
+}
+
+/* Styling the text input */
+.admin-text {
+	width: 100%;
+	padding: 0.5rem;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	font-size: 1rem;
+	transition: border-color 0.3s ease;
+}
+
+.admin-text:focus {
+	outline: none;
+	border-color: #007bff;
+	box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+/* --------------------------- Tree topology form ------------------------------------- */
+
+
+/* Remove spacing between cells in the table within topology3 form */
+#topology3 table tr td{
+	height: 50px;
+}
+#topology3 table tr td .textCell{
+	height: 30px;
+
+}
+#topology3 image{
+	height: 50px;
+}
+
+#topology4 table tr td{
+	height: 50px;
+}
+#topology4 table tr td .textCell{
+	height: 30px;
+}
+#topology4 image{
+	height: 50px;
+}
+
+/*-------------------------------------- people -------------------------------------------------------------------*/
+
+.peopleTable{
+
+}
+.peopleTable tr{
+
+}
+.peopleTable tr td{
+	vertical-align: top;
+
+	width: 200px;
+}
+.peopleTable tr td img{
+	width: 190px;
+	height: 260px;
+
+	border-radius: 5%;
+}
+.peopleTable tr td strong{
+	font-size: 12pt;
+}
+.peopleTable tr th{
+	text-align: left;
+	padding-left: 10px;
+}
+
+
+.people-container {
+	position: relative;
+	display: inline-block;
+}
+
+.people-description {
+	position: absolute;
+	bottom: 10px;
+	left: 10px;
+
+	background-color: rgba(0, 0, 0, 0.7);
+	color: white;
+	padding: 5px 10px;
+	border-radius: 5px;
+	font-size: 12px;
+}
+
+
+/*  -------------------------------------- Taxa ----------------------------------------- */
+.taxon-filter {
+	border: 1px solid #ccc;
+	padding: 10px;
+	margin: 5px 0;
+	cursor: pointer;
+	width: 300px;
+
+	display: flex;
+}
+.taxon-filter input[type="radio"] {
+	margin-right: 10px;
+}
+
+/*                                style study from                                                     */
+
+/* Base Table Styling */
+
+#study {
+	width: 100%;
+	border-collapse: collapse; /* Ensures borders do not double up */
+	margin: 20px 0;
+	font-size: 14px;
+	text-align: left;
+	border: 1px solid #ddd; /* Light border for the table */
+}
+
+/* Header Styling */
+#study th {
+	background-color: #369BB8; /* Green background for headers */
+	color: white; /* White text for contrast */
+	font-weight: bold;
+	padding: 10px;
+	text-align: left;
+	border: 1px solid #ddd;
+	cursor: pointer; /* For sortable headers */
+}
+#study th a{
+	color: white; /* White text for contrast */
+	font-weight: bold;
+}
+#study th a .iconColumn{
+	background-color: white;
+}
+
+
+/* Body Cell Styling */
+#study td {
+	padding: 10px;
+	border: 1px solid #ddd;
+	vertical-align: middle;
+}
+
+/* Zebra Striping for Rows */
+#study tr:nth-child(odd) {
+	background-color: #f9f9f9; /* Light gray for odd rows */
+}
+
+#study tr:nth-child(even) {
+	background-color: #ffffff; /* White for even rows */
+}
+
+/* Row Hover Effect */
+#study tr:hover {
+	background-color: #f1f1f1; /* Subtle hover effect */
+	transition: background-color 0.3s ease;
+}
+
+/* Checkbox Column */
+#study .checkBoxColumn {
+	text-align: center;
+	width: 5%; /* Keep the checkbox column narrow */
+}
+
+/* Icon Column Styling */
+#study .iconColumn {
+	text-align: center;
+	width: 40px; /* Adjust as per your icon size */
+}
+
+/* Icon Button Styling */
+#study .iconButton {
+	width: 16px; /* Icon size */
+	height: 16px;
+	margin: 0 5px; /* Spacing between icons */
+	cursor: pointer; /* Pointer cursor on hover */
+}
+
+/* Footer Styling */
+#study #buttonContainer {
+	padding: 10px;
+	background-color: #f4f4f4; /* Light gray footer */
+	text-align: center;
+	border-top: 1px solid #ddd; /* Divider between table and footer */
+}
+
+
+/* 											Change study status 											*/
+
+/* General Table Styling */
+.list {
+	width: 100%;
+	border-collapse: collapse;
+	margin: 20px 0;
+	font-size: 16px;
+	text-align: left;
+	border: 1px solid #ddd;
+
+	table-layout: fixed;
+}
+
+.list th, .list td {
+	padding: 12px;
+	border: 1px solid #ddd;
+}
+.list td:nth-child(2){
+	word-wrap: break-word;
+	white-space: normal;
+}
+
+.list th {
+	background-color: #f4f4f4;
+	color: #333;
+}
+
+/* Styling for Alternate Row Colors */
+.list tr:nth-child(even) {
+	background-color: #f9f9f9;
+}
+
+.list tr:hover {
+	background-color: #f1f1f1;
+}
+
+/* Styling for the Change Status Column */
+.list .status-column {
+	vertical-align: top;
+	white-space: nowrap;
+}
+
+.status-column input[type="radio"] {
+	margin: 0 5px 5px 0; /* Space between checkboxes */
+	display: block; /* Ensures checkboxes are stacked vertically */
+}
+
+/* width config */
+
+.list th:nth-child(1) { width: 5%; }
+.list th:nth-child(2) { width: 10%; }
+.list th:nth-child(3) { width: 20%; }
+.list th:nth-child(4) { width: 25%; }
+.list th:nth-child(5) { width: 10%; }
+.list th:nth-child(6) { width: 10%; }
+.list th:nth-child(7) { width: 10%; }
+.list th:nth-child(8) { width: 10%; }

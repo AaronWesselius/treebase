@@ -1,0 +1,116 @@
+
+/* Head */
+#navcontainer{
+    background-color: #ffffff;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow: 1px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+#navlist{
+    width: 92%;
+    background-color: #ffffff;
+    list-style-type: none;
+    padding: 0;
+}
+
+#navlist li {
+    padding: 0;
+    margin: 0;
+}
+.nav-text{
+    font-family: Helvetica;
+    font-size: 12pt;
+    color: #353535;
+    font-weight: normal;
+}
+
+/* Items */
+.navblock {
+    display: flex;
+    align-items: center; /* Center items vertically */
+    height: 26px;
+}
+
+.navblock span {
+    font-size: 10pt;
+    font-family: Helvetica, sans-serif;
+    margin-left: 5px; /* Optional: add space between image and text */
+    vertical-align: middle; /* Aligns the image vertically */
+}
+
+.iconsvg {
+    margin-left: 5px;
+    width: 10pt;
+    height: 13pt;
+    vertical-align: middle; /* Aligns the image vertically */
+}
+
+/* different */
+
+#navlist li a {
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+    color: inherit;
+    border-radius: 10px; /* makes it round */
+}
+
+#navlist li a:hover {
+    background-color: #dcdcdc; /* Change background on hover */
+}
+
+#navlist li a:current{
+
+}
+#navlist li a:active{
+    
+}
+.innerNavlist {
+    padding: 0;
+    width: 100%;
+    list-style-type: none; /* Removes bullets/dots for both main and inner lists */
+}
+
+.innernavText{
+    margin-left: 40px;
+    font-size: 10pt;
+    font-family: Helvetica, sans-serif;
+    vertical-align: middle; /* Aligns the image vertically */
+}
+
+.innernavBlock{
+    display: flex;
+    align-items: center; /* Center items vertically */
+    height: 26px;
+}
+#start-admin-nav {
+    padding-top: 20px;
+    border-top: 2px solid black;
+}
+
+#end-admin-nav {
+    border-bottom: 2px solid black;
+    margin-bottom: 100px;
+}
+
+#admin-nav-header{
+    font-weight: bold;
+
+}
+.admin-part{
+    margin-bottom: 5px;
+}
+p{
+    margin: 0px;
+}

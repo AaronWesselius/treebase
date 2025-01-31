@@ -1,0 +1,10 @@
+<table width="501" border="0">
+  <tr>
+	<td width="495"><p><strong>A Special Note to Submitters to the Previous Version
+	  of TreeBASE:</strong> If you started a submission in the previous
+	  version, but that submission remained &quot;in progress,&quot;
+	  you will need to start the submission all over again
+	in this new version of TreeBASE.</p>
+	</td>
+  </tr>
+</table>

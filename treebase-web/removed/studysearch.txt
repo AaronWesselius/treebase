@@ -1,0 +1,20 @@
+ <form id="searchSimple" method="post">
+  <fieldset class="search-fieldset">
+  For study IDs with values less than 3000, please search using the &quot;Legacy Study ID&quot; button.<br>
+  Search: <input type="hidden" name="formName" value="searchKeyword"/>
+	  <div class="search-group">
+		<input class="search-input" type="text" style="width:150px" name="searchTerm" id="keyword" value="${searchTerm}"/>
+		  <div class="line"></div>
+		<select class="search-select" name="searchButton">
+			<c:forEach var="options" items="${searchOptions}">
+				<option value="${options.key}" <c:if test="${options.key == searchButton}">selected="selected"</c:if> />
+					${options.value}
+				</option>
+			</c:forEach>
+		</select>
+		  <div class="line"></div>
+		<button id="search-button" type="submit" name="submit" >Search</button>
+	  </div>
+    </fieldset>
+    <jsp:include page="querySearchBox.jsp"/>
+  </form>

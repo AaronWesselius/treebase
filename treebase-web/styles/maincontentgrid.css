@@ -1,0 +1,33 @@
+
+/* Main grid system */
+.grid-system {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+/* Grid items with specific widths */
+.grid-containeronewide {
+    grid-column: span 1;
+    height: fit-content;
+}
+.grid-containertwowide {
+    grid-column: span 2;
+    max-height: fit-content;
+}
+.grid-containerthreewide {
+    grid-column: span 3;
+    max-height: fit-content;
+}
+.grid-containerfourwide {
+    grid-column: span 4;
+    height: fit-content;
+}
+.grid-containerfourwide h1{
+    margin: 0;
+}
+
+

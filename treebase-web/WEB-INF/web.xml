@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	
+	<display-name>Treebase Web</display-name>
+	<!-- ========================================================== -->
+	<!-- Context Listener to load bean configuration files          -->
+	<!-- treebase-servlet.xml is optional if you use the default    -->
+	<!-- name.  You can also load multiple treebase-servlet?.xml    -->
+	<!-- if needed													-->	                                                    
+	<!-- ========================================================== -->
+	
+
+  <session-config>
+    <session-timeout>300</session-timeout>
+  </session-config>
+  
+	
+	<context-param>
+ 		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			classpath*:applicationContext-db-webapp.xml, 
+			classpath*:applicationContext-dao.xml,
+			classpath*:applicationContext-service.xml,
+			/WEB-INF/applicationContext.xml,
+			/WEB-INF/treebase-security.xml,
+			/WEB-INF/cxf-servlet.xml,
+			/WEB-INF/treebase-validation.xml
+		</param-value>
+ 	</context-param>
+ 	<!-- Define the basename for a resource bundle for I18N -->
+ 	<context-param>
+ 		<param-name>javax.servlet.jsp.jstl.fmt.localizationContext</param-name>
+ 		<param-value>ApplicationResources</param-value>
+ 	</context-param>
+ 	<!--  Fall back locale if no bundles found for browser's preferred locale  -->
+ 	<context-param>
+ 		<param-name>javax.servlet.jsp.jstl.fmt.fallbackLocale</param-name>
+ 		<param-value>en</param-value>
+ 	</context-param>
+ 	
+	<filter>
+  		<filter-name>monitoring</filter-name>
+  		<filter-class>net.bull.javamelody.MonitoringFilter</filter-class>
+  		<!-- Allows a user who can connect to the monitoring page to perform system-level actions such as:
+       		* Run the Garbage Collector
+       		* Invalidate HTTP sessions (individually and in bulk)
+       		* Kill server threads
+  			-->
+  		<init-param>
+    		<param-name>system-actions-enabled</param-name>
+    		<param-value>true</param-value>
+  		</init-param>
+	</filter>
+	<filter-mapping>
+  		<filter-name>monitoring</filter-name>
+  		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<listener>
+  		<listener-class>net.bull.javamelody.SessionListener</listener-class>
+	</listener>
+
+	<!-- =================================================================== -->
+	<!-- Declarations of JNDI Resources expected from the Tomcat container   -->
+	<!-- =================================================================== -->
+    <resource-ref>
+       <description>The JNDI DataSource of the Treebase postgres instance that should be supplied by Tomcat.</description>
+       <res-ref-name>jdbc/TreebaseDB</res-ref-name>
+       <res-type>javax.sql.DataSource</res-type>
+       <res-auth>Container</res-auth>
+	</resource-ref>
+
+    <env-entry>
+      <description>Absolute path to the directory where headless Mesquite is unpacked on the host system.</description>
+      <env-entry-name>tb2/MesquiteFolder</env-entry-name>
+      <env-entry-type>java.lang.String</env-entry-type>
+    </env-entry>	
+    
+    <env-entry>
+      <description>The base URL from which this Treebase instance is served.
+                   Most likely, it has the form "http://your.server.xxx/treebase-web/".
+                   Trailing slash is required.</description>
+      <env-entry-name>tb2/SiteUrl</env-entry-name>
+      <env-entry-type>java.lang.String</env-entry-type>
+    </env-entry>	
+     
+    <env-entry>
+      <description>The base URL of a PURL service that redirects to this Treebase instance.
+                   The PURL service should resolve tb2/PurlBase value into something 
+                   like "http://your.server.xxx/..../treebase-web/phylows/", 
+                   which must be the valid PhyloWS URL of this Treebase instance.
+                   Trailing slash is required.</description>
+      <env-entry-name>tb2/PurlBase</env-entry-name> 
+      <env-entry-type>java.lang.String</env-entry-type>
+    </env-entry>	
+
+    <env-entry>
+      <description>Host name of an SMTP server that your instance can use without authentication.</description>
+      <env-entry-name>tb2/SmtpHost</env-entry-name>
+      <env-entry-type>java.lang.String</env-entry-type>
+    </env-entry>	
+
+	<!-- ========================================================== -->
+	<!-- List of Filters											-->
+	<!-- ========================================================== -->
+	<filter>
+    	<filter-name>sitemesh</filter-name>
+    	<filter-class>com.opensymphony.module.sitemesh.filter.PageFilter</filter-class>
+	</filter>
+	<filter>
+		<filter-name>securityFilter</filter-name>
+		<filter-class>org.acegisecurity.util.FilterToBeanProxy</filter-class>
+		<init-param>
+			<param-name>targetClass</param-name>
+			<param-value>org.acegisecurity.util.FilterChainProxy</param-value>
+		</init-param>
+	</filter>
+	<filter>
+		<filter-name>hibernateFilter</filter-name>
+		<filter-class>org.springframework.orm.hibernate3.support.OpenSessionInViewFilter</filter-class>
+		 <init-param>
+		 	<param-name>singleSession</param-name>
+         	<param-value>true</param-value>
+         </init-param>
+	</filter>
+	
+	<filter>
+    	<filter-name>ResponseOverrideFilter</filter-name>
+    	<filter-class>org.displaytag.filter.ResponseOverrideFilter</filter-class>
+  	</filter>
+  	
+  <filter>
+    	<filter-name>UrlRewriteFilter</filter-name>
+    	<filter-class>org.tuckey.web.filters.urlrewrite.UrlRewriteFilter</filter-class>
+  	</filter>
+  	
+
+  	
+ 
+    
+	
+ 	<!-- ========================================================== -->
+ 	<!-- Mappings for Filters defined aboved						-->
+ 	<!-- ========================================================== -->
+ 	 <filter-mapping>
+ 		<filter-name>securityFilter</filter-name>
+ 		<url-pattern>/*</url-pattern> 	
+ 	</filter-mapping>
+ 	
+ 	 <filter-mapping>
+ 		<filter-name>sitemesh</filter-name>
+		<url-pattern>*.html</url-pattern>
+ 		<dispatcher>REQUEST</dispatcher>
+ 		<dispatcher>FORWARD</dispatcher>
+	 </filter-mapping>
+	 
+	 <filter-mapping>
+ 		<filter-name>sitemesh</filter-name>
+		<url-pattern>*.jsp</url-pattern>
+ 		<dispatcher>REQUEST</dispatcher>
+ 		<dispatcher>FORWARD</dispatcher>
+	 </filter-mapping>
+	 
+	 <filter-mapping>
+ 		<filter-name>sitemesh</filter-name>
+		<url-pattern>*.htm</url-pattern>
+ 		<dispatcher>REQUEST</dispatcher>
+ 		<dispatcher>FORWARD</dispatcher>
+	 </filter-mapping>
+	 
+	 <filter-mapping>
+ 		<filter-name>sitemesh</filter-name>
+		<url-pattern>*.rdf</url-pattern>
+ 		<dispatcher>REQUEST</dispatcher>
+ 		<dispatcher>FORWARD</dispatcher>
+	 </filter-mapping>
+		 
+	 <filter-mapping>
+ 		<filter-name>sitemesh</filter-name>
+		<url-pattern>/</url-pattern>
+ 		<dispatcher>REQUEST</dispatcher>
+ 		<dispatcher>FORWARD</dispatcher>
+	 </filter-mapping>	 
+ 	 <filter-mapping>
+ 		<filter-name>sitemesh</filter-name>
+		<url-pattern>/phylows/*</url-pattern>
+ 		<dispatcher>REQUEST</dispatcher>
+ 		<dispatcher>FORWARD</dispatcher>
+	 </filter-mapping>
+ 	 
+ 	 <filter-mapping>
+ 		<filter-name>sitemesh</filter-name>
+		<url-pattern>/top/*</url-pattern>
+ 		<dispatcher>REQUEST</dispatcher>
+ 		<dispatcher>FORWARD</dispatcher>
+	</filter-mapping>
+ 	 
+ 	 <filter-mapping>
+ 		<filter-name>sitemesh</filter-name>
+ 		<url-pattern>/services/*</url-pattern>
+ 		<dispatcher>REQUEST</dispatcher>
+ 		<dispatcher>FORWARD</dispatcher>
+ 	</filter-mapping>
+ 	
+ 	<filter-mapping>
+ 		<filter-name>hibernateFilter</filter-name>
+ 		<url-pattern>*.html</url-pattern>
+ 	</filter-mapping>	
+ 	<filter-mapping>
+ 		<filter-name>hibernateFilter</filter-name>
+ 		<url-pattern>*.html</url-pattern>
+ 	</filter-mapping>
+ 	
+ 	<filter-mapping>
+    	<filter-name>ResponseOverrideFilter</filter-name>
+    	<url-pattern>*.jsp</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+    	<filter-name>ResponseOverrideFilter</filter-name>
+    	<url-pattern>*.html</url-pattern>
+    </filter-mapping>
+    
+    <filter-mapping>
+    	<filter-name>UrlRewriteFilter</filter-name>
+    	<url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    
+    
+ 
+    
+	<!-- ========================================================== -->
+	<!-- define the listener    				                    -->
+	<!-- ========================================================== -->
+	<!--listener>
+  		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener-->	
+	<listener>
+		<listener-class>org.cipres.treebase.web.listeners.StartupListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>net.sf.navigator.menu.MenuContextListener</listener-class>
+	</listener>
+	<!--  listener>
+  		<listener-class>org.cipres.treebase.web.listeners.EventListener</listener-class>
+	</listener -->	
+	
+	
+	
+	<!-- ========================================================== -->
+	<!-- Name of our servlet processed by Spring's front controller -->
+	<!-- DispatcherServlet                                          -->
+	<!-- ========================================================== -->
+	<servlet>
+		<servlet-name>treebase</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	<!-- ========================================================== -->
+	<!-- Processed by XFireSpringServlet -->                
+	<!-- ========================================================== -->
+	<!--servlet>
+    	<servlet-name>XFireServlet</servlet-name>
+    	<servlet-class>
+        	org.codehaus.xfire.spring.XFireSpringServlet
+    	</servlet-class>
+  	</servlet-->
+  	
+  	<!-- ========================================================== -->
+	<!-- Processed by CXFServlet -->                
+	<!-- ========================================================== -->
+  	<servlet>
+    	<servlet-name>CXFServlet</servlet-name>
+    	<servlet-class>
+        	org.apache.cxf.transport.servlet.CXFServlet
+    	</servlet-class>    
+  	</servlet>
+  	
+	<!-- ========================================================== -->
+	<!-- Processed by Jersey -->                
+	<!-- ========================================================== -->
+  	<servlet>
+  		<servlet-name>HandshakingServlet</servlet-name>
+		<servlet-class>
+  			com.sun.jersey.spi.container.servlet.ServletContainer
+		</servlet-class>
+  		<init-param>
+    		<param-name>com.sun.jersey.config.property.packages</param-name>
+    		<param-value>org.cipres.treebase.web.webservices</param-value>
+  		</init-param>
+  		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+
+	<!-- ========================================================== -->
+	<!-- url pattern that will be processed by DispatcherServlet    -->
+	<!-- ========================================================== -->
+	<servlet-mapping>
+		<servlet-name>treebase</servlet-name>
+		<url-pattern>*.html</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>treebase</servlet-name>
+		<url-pattern>*.xml</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>treebase</servlet-name>
+		<url-pattern>*.rdf</url-pattern>
+	</servlet-mapping>	
+	<servlet-mapping>
+		<servlet-name>treebase</servlet-name>
+		<url-pattern>/phylows/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>treebase</servlet-name>
+		<url-pattern>/top/*</url-pattern>
+	</servlet-mapping>
+	
+	<!-- ========================================================== -->
+	<!-- url pattern that will be processed by XFireSpringServlet    -->
+	<!-- ========================================================== -->
+	
+  	<!--servlet-mapping>
+   	 	<servlet-name>XFireServlet</servlet-name>
+    	<url-pattern>/servlet/XFireServlet/*</url-pattern>
+  	</servlet-mapping-->
+
+  	<!--servlet-mapping>
+    	<servlet-name>XFireServlet</servlet-name>
+    	<url-pattern>/services/*</url-pattern>
+  	</servlet-mapping-->
+  	
+ 	<!-- ========================================================== -->
+	<!-- url pattern that will be processed by CXFServlet    -->
+	<!-- ========================================================== --> 	
+  	<servlet-mapping>
+    	<servlet-name>CXFServlet</servlet-name>
+    	<url-pattern>/services/*</url-pattern>
+    </servlet-mapping>
+    
+    <!-- ========================================================== -->
+	<!-- url pattern that will be processed by CXFServlet    -->
+	<!-- ========================================================== --> 	
+  	<servlet-mapping>
+    	<servlet-name>HandshakingServlet</servlet-name>
+    	<url-pattern>/handshaking/*</url-pattern>
+    </servlet-mapping>
+	
+	<!-- ========================================================== -->
+	<!-- DWR Sruff    -->
+	<!-- ========================================================== -->
+	
+	<servlet>
+		<servlet-name>dwr</servlet-name>
+		<servlet-class>org.directwebremoting.spring.DwrSpringServlet</servlet-class>
+		<init-param>
+    		<param-name>allowGetForSafariButMakeForgeryEasier</param-name>
+    		<param-value>true</param-value>
+  		</init-param>
+		<init-param>
+            <param-name>debug</param-name>
+            <param-value>true</param-value>
+        </init-param>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>dwr</servlet-name>
+		<url-pattern>/dwr/*</url-pattern>
+	</servlet-mapping>
+
+	<!-- ========================================================== -->
+	<!-- define some default pages			                        -->
+	<!-- ========================================================== -->
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+	<!-- ========================================================== -->
+	<!-- Error Pages											 	-->
+	<!-- ========================================================== -->
+	<error-page>
+		<exception-type>java.lang.Exception</exception-type>
+		<location>/WEB-INF/pages/errors/uncaughtException.jsp</location>
+	</error-page>
+	<error-page>
+		<exception-type>java.lang.Exception</exception-type>
+		<location>/WEB-INF/pages/errors/uncaughtException.jsp</location>
+	</error-page>
+	<!--  Internal Server Error -->
+	<error-page>
+		<error-code>500</error-code>	
+		<location>/error-500.jsp</location>
+	</error-page>
+
+</web-app>

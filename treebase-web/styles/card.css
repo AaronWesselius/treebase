@@ -1,0 +1,55 @@
+.card {
+    display: flex;                /* Use flexbox for layout */
+    border: 1px solid #ccc;      /* Light gray border */
+    border-radius: 8px;          /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    margin: 16px;                /* Margin around the card */
+    overflow: hidden;            /* Hide overflow */
+           /* Set a max width for the card */
+}
+
+.card-space{
+    width: 100px;
+    display: grid;
+    align-items: center;
+}
+
+.card .card-space img {
+    width: 50px;                 /* Fixed width for the image */
+    height: auto;                /* Maintain aspect ratio */
+    margin: 16px;                /* Margin around the image */
+}
+
+.card .content p{                /* New wrapper for content */
+    display: flex;               /* Flexbox for vertical stacking */
+    flex-direction: column;      /* Stack elements vertically */
+    justify-content: center;      /* Center content vertically */
+    padding: 1px;               /* Padding around content */
+    margin-right: 10px;
+}
+.card .content a{
+    text-decoration: none;
+}
+
+.card .title p{
+    margin-top: 10px;
+    padding: 0px;
+    font-weight: bold;           /* Bold title */
+    font-size: 1.5em;           /* Larger font size for title */
+}
+
+
+.card .rest {
+    font-size: 0.9em;            /* Slightly smaller font size for text */
+    margin-bottom: 2px;         /* Space below text */
+}
+
+.card .contact {
+    font-size: 0.8em;            /* Even smaller font size for contact */
+    color: #555;                 /* Darker gray for contact text */
+    text-align: right;           /* Right-align the contact text */
+
+    margin-right: 10px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}

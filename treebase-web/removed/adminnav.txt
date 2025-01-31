@@ -1,0 +1,37 @@
+<%if(request.isUserInRole("Admin") || request.isUserInRole("Associate Editor")){%>
+		<li>
+			<div></div>
+		</li>
+			<li class="admin-part" id="start-admin-nav">
+				<p id="admin-nav-header">Admin Section<p>
+			</li>
+			<li class="admin-part">
+				<div class="navblock">
+					<img class="iconsvg" src="<c:url value='/images/icons/SVG/uploadIcon.svg'/>" alt="<fmt:message key='nav.admin.study'/>">
+					<span class="navlistHeading"><fmt:message key="nav.admin.study"/></span>
+				</div>
+				<ul class="innerNavlist">
+					<li><a href="<c:url value="/admin/userManagement.html"/>"><div class="innernavBlock"><span class="innernavText"><fmt:message key="nav.admin.study.user"/></span></div></a></li>
+					<li><a href="<c:url value="/admin/readyStateStudies.html"/>"><div class="innernavBlock"><span class="innernavText"><fmt:message key="nav.admin.study.state"/></span></div></a></li>
+					<li><a href="<c:url value="/admin/searchBySubmissionID.html"/>"><div class="innernavBlock"><span class="innernavText"><fmt:message key="nav.admin.study.submission"/></span></div></a></li>
+					<li><a href="<c:url value="/admin/selectStudies.html"/>"><div class="innernavBlock"><span class="innernavText"><fmt:message key="nav.admin.study.select"/></span></div></a></li>
+				</ul>
+			</li>
+			<li class="admin-part" id="end-admin-nav">
+				<div class="navblock">
+					<img class="iconsvg" src="<c:url value='/images/icons/SVG/uploadIcon.svg'/>" alt="<fmt:message key='nav.admin.user'/>">
+					<span class="navlistHeading"><fmt:message key="nav.admin.user"/></span>
+				</div>
+				<ul class="innerNavlist">
+					<li><a href="<c:url value="/admin/adminSelectUsers.html"/>"><div class="innernavBlock"><span class="innernavText"><fmt:message key="nav.admin.user.update"/></span></div></a></li>
+					<li><a href="<c:url value="/admin/adminMergingUsers.html"/>"><div class="innernavBlock"><span class="innernavText"><fmt:message key="nav.admin.user.merge"/></span></div></a></li>
+					<li><a href="<c:url value="/admin/adminSelectPersons.html"/>"><div class="innernavBlock"><span class="innernavText"><fmt:message key="nav.admin.person.select"/></span></div></a></li>
+					<li><a href="<c:url value="/admin/adminMergingPersons.html"/>"><div class="innernavBlock"><span class="innernavText"><fmt:message key="nav.admin.person.merge"/></span></div></a></li>
+				</ul>
+			</li>
+			<li>
+				<div></div>
+			</li>
+
+		<% } %>
+		<li>
